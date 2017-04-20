@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+
+<body class = "container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<table class= "table">
+
+    <tr>
+        <th>q</th>
+        <th>sr</th>
+        <th>ds</th>
+        <th>start</th>
+        <th>end</th>
+        <th>total</th>
+        <th>group</th>
+        <th>sort</th>
+    </tr>
+
+    <tr th:object = "${search}">
+        <td th:text="*{list.q}"></td>
+        <td th:text="*{list.sr}"></td>
+        <td th:text="*{list.ds}"></td>
+        <td th:text="*{list.start}"></td>
+        <td th:text="*{list.end}"></td>
+        <td th:text="*{list.total}"></td>
+        <td th:text="*{list.group}"></td>
+        <td th:text="*{list.sort}"></td>
+    </tr>
+</table>
+<table class = "table">
+    <tr th:each="item : ${search.list.item}">
+        <td th:text="${item.offset}"></td>
+        <td th:text="${item.group}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.ndbno}"></td>
+        <td th:text="${item.ds}"></td>
+    </tr>
+</table>
+</body>
+</html>
